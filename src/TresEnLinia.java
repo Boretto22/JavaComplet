@@ -59,14 +59,20 @@ public class TresEnLinia {
         return resultat !=RESULTAT.ENJOC;
     }
 
+    public static int demanar(String s, Scanner input){
+        System.out.print(s);
+        return input.nextInt();
+    }
+
     public static void ferTirada(Scanner input, TORN t, VALOR[][] tauler){
+
+        System.out.println("Partida: "+ resultat);
+        System.out.println("Torn: "+torn);
         int fila, col;
         do {
-            System.out.print("Fila: ");
-            fila = input.nextInt();
+            fila = demanar("Fila: ", input);
+            col= demanar("Columna: ", input);
 
-            System.out.print("Columna: ");
-            col = input.nextInt();
         }while (! tiradaValida(fila, col, tauler));
 
             tauler[fila][col] = (t == TORN.JUGADOR_A) ? VALOR.CREU : VALOR.CERCLE;
@@ -88,10 +94,37 @@ public class TresEnLinia {
     }
 
     public static RESULTAT comprovaResultat(VALOR[][] t){
+        boolean guanya = false;
+
         for(int f=0; f<=2; f++){
-            if(t[f][0]==t[f][1] && t[f][1]==t[f][2] &&t[f][0]!=VALOR.BUIDA);
+            if(t[f][0]==t[f][1] && t[f][1]==t[f][2] && t[f][0]!=VALOR.BUIDA){
+                guanya = true;
+                break;
+            }
         }
-        return RESULTAT.ENJOC;
+        for(int c=0; c<=2; c++){
+            if(t[0][c]==t[1][c] && t[1][c]==t[2][c] && t[0][c]!=VALOR.BUIDA){
+                guanya = true;
+                break;
+            }
+        }
+
+        if(t[2][0]==t[1][1] && t[1][1]==t[0][2] && t[1][1]!=VALOR.BUIDA){
+            guanya = true;
+        }
+        if(t[0][0]==t[1][1] && t[1][1]==t[2][2] && t[1][1]!=VALOR.BUIDA){
+            guanya = true;
+        }
+
+        if(guanya && torn==TORN.JUGADOR_A){
+            return RESULTAT.GUANYADOR_A;
+        } else if (guanya && torn==TORN.JUGADOR_B) {
+            return RESULTAT.GUANYADOR_B;
+        } else if (!guanya && numTirades==9){
+            return RESULTAT.EMPAT;
+        } else {
+            return RESULTAT.ENJOC;
+        }
     }
 
     public static void mostrarResultat(RESULTAT r){
@@ -99,10 +132,10 @@ public class TresEnLinia {
             System.out.println("EMPAT,sou la peste");
         }
         else if(r==RESULTAT.GUANYADOR_A){
-            System.out.println("GUANYA EL JUGADOR A, B pringao");
+            System.out.println("GUANYA EL JUGADOR A. B pringao");
         }
         else if(r==RESULTAT.GUANYADOR_B){
-            System.out.println("Guanya B, ho has fet bé A");
+            System.out.println("Guanya B. Ho has fet bé A");
         }
         else{
             System.out.println("La partida continuaaa...");

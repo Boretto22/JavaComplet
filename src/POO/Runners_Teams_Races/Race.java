@@ -1,15 +1,13 @@
 package POO.Runners_Teams_Races;
 
 public class Race {
-    // Propietats
+
     private String raceID;
     private Runner[] runners;
     private float[] times;
     private boolean isFinals;
     private int numRunners;
     private float classificationTime;
-
-    // Constructor(s)
 
     public Race(String raceID) {
         this.raceID = raceID;
@@ -22,8 +20,6 @@ public class Race {
         this.isFinals = finals;
         this.classificationTime = classificationTime;
     }
-
-    // Getters
 
     public String getRaceID() {
         return raceID;
@@ -41,8 +37,6 @@ public class Race {
         return classificationTime;
     }
 
-    // Setters
-
     public void setRaceID(String raceID) {
         this.raceID = raceID;
     }
@@ -58,9 +52,6 @@ public class Race {
     public void setClassificationTime(float classificationTime) {
         this.classificationTime = classificationTime;
     }
-
-
-    // Altres
 
     public void addRunner(Runner r){
     }

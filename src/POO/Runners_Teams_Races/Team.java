@@ -1,13 +1,11 @@
 package POO.Runners_Teams_Races;
 
 public class Team {
-    // Propietats
+
     private String name;
     private Runner[] runners;
     private int numRunners;
     private boolean international;
-
-    // Constructor
 
     public Team(String name, boolean international) {
         this.name = name;
@@ -15,8 +13,6 @@ public class Team {
         this.runners = new Runner[5];
         this.numRunners = 0;
     }
-
-    // Getters & Setters
 
     public String getName() {
         return name;
@@ -34,7 +30,6 @@ public class Team {
         this.international = international;
     }
 
-    // Altres
     public void addRunner(Runner r){
     }
 

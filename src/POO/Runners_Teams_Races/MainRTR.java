@@ -3,12 +3,9 @@ package POO.Runners_Teams_Races;
 public class MainRTR {
     public static void main(String[] args){
 
-        // Variables de classe (Runner, Team i Race)
         Runner r1, r2, r3, r4;
         Team t1, t2;
         Race c1, c2, c3;
-
-        // Construcció d'objectes de classes (Runner, Team i Race)
 
         r1 = new Runner("Paco", "Playas", true);
         r2 = new Runner("Pep");
@@ -22,13 +19,11 @@ public class MainRTR {
         c2 = new Race("Puig Major");
         c3 = new Race("San Silvestre");
 
-        // Agregar Runners a Teams
         t1.addRunner(r1);
         t1.addRunner(r4);
         t2.addRunner(r2);
         t2.addRunner(r3);
 
-        // Agregar Runners a Races
         c1.addRunner(r1);
         c1.addRunner(r2);
         c1.addRunner(r3);
@@ -37,7 +32,6 @@ public class MainRTR {
         c3.addRunner(r1);
         c3.addRunner(r3);
 
-        // Afegir carreres a corredors
         r1.addRace("Puig Major");
         r1.addTime(65);
 

@@ -1,15 +1,13 @@
 package POO.Runners_Teams_Races;
 
 public class Runner {
-    // Propietats
+
     private String name;
     private String team;
     private String[] raceIDs;
     private float[] times;
     private int numRaces;
     private boolean professional;
-
-    // Constructor(s)
 
     public Runner(String name) {
         this.name = name;
@@ -29,8 +27,6 @@ public class Runner {
         this.numRaces = 0;
     }
 
-    // Getters (Accesor)
-
     public String getName() {
         return name;
     }
@@ -43,7 +39,6 @@ public class Runner {
         return team;
     }
 
-    // Setters (mutador)
 
     public void setTeam(String team) {
         this.team = team;
@@ -65,8 +60,6 @@ public class Runner {
         this.professional = professional;
     }
 
-
-    // Altres mètodes
 
     public void addRace(String idRace){
         if(numRaces<5) {
